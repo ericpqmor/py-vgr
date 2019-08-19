@@ -22,7 +22,7 @@ class Point:
 
         EPS, INF = 0.005, 10**6
 
-        # Gambiarra 
+        # SOS 
         if py == a.y or py == b.y:
             py += EPS
         if px == a.x or px == b.x:
@@ -35,15 +35,15 @@ class Point:
             return True
         else:
             if abs(a.x - b.x) > EPS:
-                m1 = (b.y - a.y) / (b.x - a.x)
+                m1 = 1.0 * (b.y - a.y) / (b.x - a.x)
             else:
                 m1 = INF
 
             if abs(a.x - px) > EPS:
-                m2 = (py - a.y) / (px - a.x)
+                m2 = 1.0 * (py - a.y) / (px - a.x)
             else:
                 m2 = INF
-
+            
         return m2 >= m1
 
             
