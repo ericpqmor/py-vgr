@@ -4,14 +4,16 @@ import time
 from draw_functions import *
 
 pygame.init()
-screen_width = 500
-screen_height = 500
+screen_width = 1000
+screen_height = 1000
 x_margin = 50
 y_margin = 50
 
 # Reading entries from command line args
 entries = sys.argv[1:]
 shapes = []
+
+start_time = time.time()
 
 # Getting data from entries
 for entry in entries:
@@ -23,5 +25,8 @@ for i in range(len(shapes)):
     screen = pygame.display.set_mode((screen_width, screen_height))
     draw_shape_on_screen(shapes[i], screen)
 
-    text = entries[i][5:-4] + '.png'
+    text = 'output/' + entries[i][5:-4] + '.png'
     pygame.image.save(screen, text)
+
+elapsed_time = time.time() - start_time
+print("Elapsed time = " + str(elapsed_time))
