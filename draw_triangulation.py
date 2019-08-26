@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import time
+sys.path.insert(1, 'lib')
 from draw_functions import *
 
 pygame.init()

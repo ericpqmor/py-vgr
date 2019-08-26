@@ -5,15 +5,14 @@ sys.path.insert(1, 'lib')
 from draw_functions import *
 
 pygame.init()
-screen_width = 1000
-screen_height = 1000
-x_margin = 50
-y_margin = 50
+screen_width = 700
+screen_height = 700
+x_margin = 70
+y_margin = 70
 
 # Reading entries from command line args
 entries = sys.argv[1:]
 shapes = []
-
 start_time = time.time()
 
 # Getting data from entries
@@ -23,11 +22,11 @@ for entry in entries:
     shapes.append(new_shape)
 
 for i in range(len(shapes)):
+    # Setting up screen
     screen = pygame.display.set_mode((screen_width, screen_height))
-    draw_shape_on_screen(shapes[i], screen)
+    screen.fill((255,255,255))
 
-    text = 'output/' + entries[i][5:-4] + '.png'
-    pygame.image.save(screen, text)
-
+    draw_points(shapes[i].points, screen, 'output/' + entries[i][5:-4] + '_convex_hull.png')
+    
 elapsed_time = time.time() - start_time
 print("Elapsed time = " + str(elapsed_time))
