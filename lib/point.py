@@ -9,8 +9,14 @@ class Point:
         self.x += x
         self.y += y
 
+    def get_as_list(self):
+        return [self.x, self.y]
+
     def __repr__(self):
         return "".join(["Point(", str(self.x), ",", str(self.y), ")"])
+
+    def __eq__(self, p):
+        return self.x == p.x and self.y == p.y
 
     def ray_intersects_segment(self, p1, p2):
         if p1.y <= p2.y:
